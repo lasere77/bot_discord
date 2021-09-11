@@ -24,6 +24,11 @@ async def help_fondateur(ctx):
     await ctx.send(f"{fondateur.mention} {co_fondateur.mention} {droit.mention}")
 
 @bot.command()
+@commands.has_permissions(manage_messages = True)
+async def code(ctx):
+    await ctx.send("je suis open souce si vous soiter voir comment je sui fait rendévous ici: https://github.com/lasere77/bot_discord")
+
+@bot.command()
 async def help_modo(ctx):
     Administrateur = get(ctx.guild.roles, name="Administrateur")
     modo = get(ctx.guild.roles, name="modo")
@@ -42,7 +47,7 @@ async def serveur_info(ctx):
 
 @bot.command()
 async def bot_aide(ctx):
-    aide = f"**-------- publique --------**\n\nje peux répéter apès vous avec la commende \n**;repeat** \nje peux vous donné les info du serveur avec la commende \n**;serveur_info** \nje peux donné les information d un message avec la commende \n**;message_info**\n si vous avez besoin d'aide il est possible d'utiliser la commende **;help_modo**\nsi la réson de votre demande d'aide est plus importent il y a la commende **;help_fondateur**\n**c'est deux commende(;help_modo et help_fondateur) ne son a utuliser que en quas de besoin sinon vour risquerez un ban perm,les même condition si vous spammé**\n\n**-------- admin --------**\n\nje peux bannir un bersonne avec la commende \n**;ban @lepseudo réson du ban obligatoir **ex ;ban @mermoud comportement inaproprier** \nje peux unban avec la commende **;unban Ball#9564 la réson obligajtoir** \nje peux supprimer des message avec le commende **;clear le nombre de message a sup**\net enfin je peux kick avec la commende** **;kick le pseudo et la réson du kick**\n\n**-------- esteur_egg --------**\n\nj'ai une commende cachez avous de la retrouvé(si vous la trouvé merci de ne pas spam ou risque de ban perm)\n\n**-------- copyright --------**\n\n©lasere"
+    aide = f"**-------- publique --------**\n\nje peux répéter apès vous avec la commende \n**;repeat**(ne pas lui fair dire des chauges imorale ou risque de kick et ban si récidive)  \nje peux vous donné les info du serveur avec la commende \n**;serveur_info** \nje peux donné les information d un message avec la commende \n**;message_info**\n si vous avez besoin d'aide il est possible d'utiliser la commende **;help_modo**\nsi la réson de votre demande d'aide est plus importent il y a la commende **;help_fondateur**\n**c'est deux commende(;help_modo et help_fondateur) ne son a utuliser que en quas de besoin sinon vour risquerez un ban perm,les même condition si vous spammé**\n\n**-------- admin --------**\n\nje peux bannir un bersonne avec la commende \n;ban @lepseudo la réson du ban est obligatoir **ex ;ban @mermoud comportement inaproprier** \nje peux unban avec la commende **;unban Ball#9564 la réson obligajtoir** \nje peux supprimer des message avec le commende **;clear le nombre de message a sup**\net enfin je peux kick avec la commende** ** **;kick le pseudo et la réson du kick** \nj ai aussi la command **;code pour pouvoir voir comment je suis fait**\n\n**-------- esteur_egg --------**\n\nj'ai une commende cachez avous de la retrouvé(si vous la trouvé merci de ne pas spam ou risque de kick et de ban perm si récidive)\n\n**-------- copyright --------**\n\n©lasere"
     await ctx.send(aide)
 
 @bot.command()
@@ -50,8 +55,8 @@ async def cc(ctx):
     await ctx.send(f"salut,comment ça vas {ctx.author.mention}")
 
 @bot.command()
-async def repeat(ctx, *text):
-    await ctx.send(" ".join(text))
+async def repeat(ctx, *,text):
+    await ctx.send(text)
 
 @bot.command()
 @commands.has_permissions(manage_messages = True)
