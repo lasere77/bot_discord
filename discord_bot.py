@@ -11,6 +11,8 @@ bot = commands.Bot(command_prefix = ";", description = "bot en test de dev")
 @bot.event
 async def on_ready():
     print("le bot est en ligne!!!!!!")
+    channel = bot.get_channel(832379873753956397)
+    await channel.send("salut,je suis en ligne si besoin😉")
 
 @bot.command()
 async def coucou(ctx):
