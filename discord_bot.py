@@ -3,6 +3,7 @@ import discord
 from discord.utils import get
 from discord.ext import commands
 from dotenv import load_dotenv
+from random import *
 
 load_dotenv(dotenv_path="config")
 
@@ -73,6 +74,11 @@ async def message_info(ctx, nombre : int):
     for message in messages:
         await ctx.send(message)
         print(message)
+
+@bot.command()
+async def fun_fact(ctx):
+    list = ["https://vm.tiktok.com/ZMR92tPUp/" , "https://www.youtube.com/watch?v=8W4oKiEQph0" , "https://vm.tiktok.com/ZMRbr1wfk/" , "https://vm.tiktok.com/ZMRbMnYXa/" , "https://vm.tiktok.com/ZMRbMcBcn/" , "https://vm.tiktok.com/ZMRbMGNxg/" , "https://vm.tiktok.com/ZMRbr8rW1/ \nvoila comment je vois jouer @Matt" , "https://vm.tiktok.com/ZMRbreT4f/" , "https://vm.tiktok.com/ZMRbMELYC/" , "https://vm.tiktok.com/ZMRbrderh/ \nquand ta encore l'ADSL" , "https://vm.tiktok.com/ZMRbrJYL7/ \n@Matt" , "https://vm.tiktok.com/ZMRbMsnTF/" , "https://vm.tiktok.com/ZMRbMvhwV/ \nPOV:ton pote viend de ta dire sa te dit on joue se soire" , "https://vm.tiktok.com/ZMRbrNPgo/" , "https://vm.tiktok.com/ZMRbM3PcF/ \nquand tu sais que tu vas passé une journé de merde" , "https://vm.tiktok.com/ZMRbrFLDn/"]
+    await ctx.send(list[randint(0,len(list)-1)])
 
 @bot.command()
 @commands.has_permissions(ban_members = True)
