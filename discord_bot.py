@@ -50,7 +50,7 @@ async def serveur_info(ctx):
 
 @bot.command()
 async def bot_aide(ctx):
-    aide = f"**-------- publique --------**\n\nje peux répéter après vous avec la commande : \n**;repeat** (ne pas lui faire dire des choses imoral sous risque de kick et ban si récidive)\nje peux vous donné les info du serveur avec la commande \n**;serveur_info** \nje peux donné les informations d'un message avec la commande  \n**;message_info**\n si vous avez besoin d'aide il est possible d'utiliser la commande \n**;help_modo**\nsi la raison de votre demande d'aide est plus importente il y a la commande \n**;help_fondateur**\n**ces deux commande (;help_modo et help_fondateur) ne son a utiliser que en cas de besoin sinon vous risquerez un ban perm.A ne pas spam non plus sous risque de la même sanctionla commande ** \nla commande \n**;meme** permet de regardé le même du serveur\n\n**-------- admin --------**\n\nje peux bannir une personne avec la commende \n;ban @lepseudo la raison du ban est obligatoire **ex ;ban @mermoud comportement insulant**\nje peux unban avec la commende:\n**;unban Ball#9564 la raison obligatoire** \nje peux supprimer des messages avec le commande \n**;clear [nombre de message à supprimé]**\net enfin je peux kick avec la commande\n**;kick [Pseudo + la raison]** \nj'ai aussi la commande \n**;code pour voir mon code source**\n\n**-------- easteur_egg --------**\n\nj'ai une commande caché a vous de la retrouvé (si vous la trouvé merci de ne pas spam, sinon ça sera un ban)\n\n**-------- copyright --------**\n\n©lasere"
+    aide = f"**-------- publique --------**\n\nje peux répéter après vous avec la commande : \n**;repeat** (ne pas lui faire dire des choses imoral sous risque de kick et ban si récidive)\nje peux vous donné les info du serveur avec la commande \n**;serveur_info** \nje peux donné les informations d'un message avec la commande  \n**;message_info**\n si vous avez besoin d'aide il est possible d'utiliser la commande \n**;help_modo**\nsi la raison de votre demande d'aide est plus importente il y a la commande \n**;help_fondateur**\n**ces deux commande (;help_modo et help_fondateur) ne son a utiliser que en cas de besoin sinon vous risquerez un ban perm.A ne pas spam non plus sous risque de la même sanctionla commande ** \nla commande \n**;meme** permet de regardé le même du serveur \ntu peux aussi joué avec la command **;game** \nle but est de donné un nombre entre 0 a 6 et si la chance est avec toi tu gagneras peut être\nsi tu a besois de générer un nombre aléatoir entre 0 a 6tu peux utuliser la command **;dé** \navec la command **;vidéo**\ntu pourra regardé des vidéo qui son dans la list choisir aléatoirement\n\n**-------- admin --------**\n\nje peux bannir une personne avec la commende \n;ban @lepseudo la raison du ban est obligatoire **ex ;ban @mermoud comportement insulant**\nje peux unban avec la commende:\n**;unban Ball#9564 la raison obligatoire** \nje peux supprimer des messages avec le commande \n**;clear [nombre de message à supprimé]**\net enfin je peux kick avec la commande\n**;kick [Pseudo + la raison]** \nj'ai aussi la commande \n**;code pour voir mon code source**\n\n**-------- easteur_egg --------**\n\nj'ai une commande caché a vous de la retrouvé (si vous la trouvé merci de ne pas spam, sinon ça sera un ban)\n\n**-------- copyright --------**\n\n©lasere"
     await ctx.send(aide)
 
 @bot.command()
@@ -81,11 +81,30 @@ async def fun_fact(ctx):
     await ctx.send(list[randint(0,len(list)-1)])
 
 @bot.command()
+async def dé(ctx):
+    await ctx.send(randint(0,6))
+
+@bot.command()
+async def game(ctx, nombre : int):
+    #récupérer l'idé du message pour voir le nombre et le mettre dans la comparéson
+    messages = nombre
+    a = randint(0,6)
+    if messages == a: # messages_id = le nombre que la personne aura mise
+        await ctx.send("bien joué,ta gagné 😉")
+    elif messages > 7:
+        await ctx.send("le nombre doit être compris entre 0 et 6 ")
+    else:
+        await ctx.send("perdu tu peux retenter ta chance")
+        await ctx.send(f"le nombre étais {a} et vous avez mis le nombre {messages}")
+
+
+@bot.command()
 @commands.has_permissions(ban_members = True)
 async def ban(ctx, user : discord.User, *reason):
         reason = " ".join(reason)
         await ctx.guild.ban(user, reason=reason)
         await ctx.send(f"{user} a été banni définitivement pour la réson suivent: {reason}")
+
 
 @bot.command()
 @commands.has_permissions(ban_members = True)
