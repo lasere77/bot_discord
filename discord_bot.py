@@ -86,16 +86,15 @@ async def dé(ctx):
 
 @bot.command()
 async def game(ctx, nombre : int):
-    #récupérer l'idé du message pour voir le nombre et le mettre dans la comparéson
     messages = nombre
-    a = randint(0,6)
-    if messages == a: # messages_id = le nombre que la personne aura mise
+    random = randint(0,6)
+    if messages == random:
         await ctx.send("bien joué,ta gagné 😉")
     elif messages > 7:
         await ctx.send("le nombre doit être compris entre 0 et 6 ")
     else:
         await ctx.send("perdu tu peux retenter ta chance")
-        await ctx.send(f"le nombre étais {a} et vous avez mis le nombre {messages}")
+        await ctx.send(f"le nombre étais {random} et vous avez mis le nombre {messages}")
 
 
 @bot.command()
