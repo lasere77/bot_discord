@@ -96,14 +96,12 @@ async def game(ctx, nombre : int):
         await ctx.send("perdu tu peux retenter ta chance")
         await ctx.send(f"le nombre étais {random} et vous avez mis le nombre {messages}")
 
-
 @bot.command()
 @commands.has_permissions(ban_members = True)
 async def ban(ctx, user : discord.User, *reason):
         reason = " ".join(reason)
         await ctx.guild.ban(user, reason=reason)
         await ctx.send(f"{user} a été banni définitivement pour la réson suivent: {reason}")
-
 
 @bot.command()
 @commands.has_permissions(ban_members = True)
