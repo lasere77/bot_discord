@@ -7,7 +7,7 @@ from random import *
 
 load_dotenv(dotenv_path="config")
 
-bot = commands.Bot(command_prefix = ";", description = "bot en test de dev")
+bot = commands.Bot(command_prefix = ";", description = "official bot from the discord server: 𝐸𝓍𝓅𝑒́𝓇𝒾𝑒𝓃𝒸𝑒")
 
 @bot.event
 async def on_ready():
